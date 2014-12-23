@@ -1,0 +1,38 @@
+﻿@import 'mixins.less';
+
+#modal {
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .5);
+
+	> .inner {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 50%;
+		width: 320px;
+		height: 240px;
+		margin-left: -175px;
+		margin-top: -135px;
+		background-color: #666;
+		border: 1px #B1B1B1 solid;
+		padding: 15px;
+	}
+
+	.modal {
+		color: #FFF;
+
+		label {
+			display: block;
+			font-weight: bold;
+		}
+
+		.row {
+			margin-bottom: 10px;
+		}
+	}
+}

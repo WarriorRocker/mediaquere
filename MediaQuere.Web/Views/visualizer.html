@@ -1,0 +1,27 @@
+﻿<div id="visualize" visualizer-zoom zoom="app.canvas.zoom">
+	<div class="viewport" style="{{app.getViewportStyle(app.canvas)}}">
+		<div class="top"></div>
+		<div class="bottom"></div>
+		<div class="right"></div>
+		<div class="left"></div>
+	</div>
+	<div ng-repeat="layer in app.layers track by $index" class="block {{(layer.hover ? 'hover' : '')}}" ng-show="layer.enabled"
+		 style="{{app.getLayerStyle(layer, app.canvas.zoom) + ((layer.minWidth || layer.minHeight) ? '' : 'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor))}}">
+		<div class="border" style="{{'border-color: ' + layer.borderColor}}"></div>
+		<div ng-if="(layer.minWidth || layer.minHeight)" class="block inner" style="{{app.getInnerLayerStyle(layer, app.canvas.zoom)}}">
+			<div class="border" style="{{'border-color: ' + layer.borderColor}}"></div>
+			<div class="top" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
+			<div class="bottom" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
+			<div class="left" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
+			<div class="right" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
+			<div class="drag" layer-resize width="layer.minWidth" height="layer.minHeight" zoom="app.canvas.zoom">
+				<div class="n"></div><div class="e"></div><div class="s"></div><div class="w"></div>
+				<div class="ne"></div><div class="se"></div><div class="nw"></div><div class="sw"></div>
+			</div>
+		</div>
+		<div class="drag" layer-resize width="layer.maxWidth" height="layer.maxHeight" zoom="app.canvas.zoom">
+			<div class="n"></div><div class="e"></div><div class="s"></div><div class="w"></div>
+			<div class="ne"></div><div class="se"></div><div class="nw"></div><div class="sw"></div>
+		</div>
+	</div>
+</div>

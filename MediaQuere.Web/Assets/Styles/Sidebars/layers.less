@@ -1,0 +1,50 @@
+﻿#sidebar {
+	.tabs {
+		height: 70%;
+
+		.layers {
+			padding-right: 8px;
+
+			.layer {
+				background-color: #666;
+				border: 1px #797979 solid;
+				padding: 2px;
+				margin: 5px 0;
+				white-space: nowrap;
+				overflow: hidden;
+				-ms-text-overflow: ellipsis;
+				-o-text-overflow: ellipsis;
+				text-overflow: ellipsis;
+				color: #FFF;
+
+				label {
+					font-weight: bold;
+				}
+
+				span {
+					font-size: 10px;
+				}
+
+				.hider {
+					float: left;
+					width: 24px;
+					height: 24px;
+					border: 1px #FFF solid;
+					cursor: pointer;
+
+					.icon {
+						width: 10px;
+						height: 10px;
+						border: 1px #000 solid;
+						margin: 6px;
+						background-color: #777;
+
+						&.show {
+							background-color: #FFF;
+						}
+					}
+				}
+			}
+		}
+	}
+}

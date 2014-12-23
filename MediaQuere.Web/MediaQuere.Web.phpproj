@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>MediaQuere.Web</Name>
+    <ProjectGuid>cfa67c3c-5dff-4e16-9f59-85d12dd1311b</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MediaQuere.Web</RootNamespace>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <AssemblyName>MediaQuere.Web</AssemblyName>
+    <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+    <Server>IISExpress</Server>
+    <PublishEvent>None</PublishEvent>
+    <PHPDevAutoPort>True</PHPDevAutoPort>
+    <PHPDevPort>45082</PHPDevPort>
+    <PHPDevHostName>localhost</PHPDevHostName>
+    <IISProjectUrl>http://localhost:18928/</IISProjectUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+    <Folder Include="Assets\Images\" />
+    <Folder Include="Assets\JavaScripts\" />
+    <Folder Include="Assets\JavaScripts\Angular\" />
+    <Folder Include="Assets\JavaScripts\jQuery\" />
+    <Folder Include="Assets\Styles\" />
+    <Folder Include="Assets\Styles\Sidebars\" />
+    <Folder Include="Assets\TypeScripts\" />
+    <Folder Include="Assets\TypeScripts\Controllers\" />
+    <Folder Include="Assets\TypeScripts\Definitions\" />
+    <Folder Include="Assets\TypeScripts\Directives\" />
+    <Folder Include="Assets\TypeScripts\Directives\Modals\" />
+    <Folder Include="Assets\TypeScripts\Models\" />
+    <Folder Include="Assets\TypeScripts\Services\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Modals\" />
+    <Folder Include="Views\Sidebar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\selection.gif" />
+    <Content Include="Assets\JavaScripts\Angular\angular-animate.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-cookies.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-loader.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-messages.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-mocks.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-resource.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-route.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-sanitize.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-scenario.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular-touch.js" />
+    <Content Include="Assets\JavaScripts\Angular\angular.js" />
+    <Content Include="Assets\JavaScripts\jQuery\jquery.js" />
+    <Content Include="Assets\JavaScripts\jQuery\jquery.nicescroll.js" />
+    <Content Include="Assets\Styles\app.less" />
+    <Content Include="Assets\Styles\forms.less" />
+    <Content Include="Assets\Styles\main.less" />
+    <Content Include="Assets\Styles\mixins.less" />
+    <Content Include="Assets\Styles\modals.less" />
+    <Content Include="Assets\Styles\responsive.less" />
+    <Content Include="Assets\Styles\sidebar.less" />
+    <Content Include="Assets\Styles\Sidebars\info.less" />
+    <Content Include="Assets\Styles\Sidebars\layers.less" />
+    <Content Include="Assets\Styles\styles.less" />
+    <Content Include="Assets\Styles\toolbar.less" />
+    <Content Include="Assets\Styles\visualizer.less" />
+    <Content Include="Assets\Styles\workspace.less" />
+    <Content Include="Assets\Styles\wraps.less" />
+    <Content Include="Assets\TypeScripts\app.ts" />
+    <Content Include="Assets\TypeScripts\Controllers\appController.ts" />
+    <Content Include="Assets\TypeScripts\Controllers\modalController.ts" />
+    <Content Include="Assets\TypeScripts\Definitions\angular-route.d.ts" />
+    <Content Include="Assets\TypeScripts\Definitions\angular.d.ts" />
+    <Content Include="Assets\TypeScripts\Definitions\jquery.d.ts" />
+    <Content Include="Assets\TypeScripts\Directives\layerResizeDirective.ts" />
+    <Content Include="Assets\TypeScripts\Directives\Modals\cssInputModalDirective.ts" />
+    <Content Include="Assets\TypeScripts\Directives\Modals\urlInputModalDirective.ts" />
+    <Content Include="Assets\TypeScripts\Directives\sidebarTabsScrollDirective.ts" />
+    <Content Include="Assets\TypeScripts\Directives\visualizerZoomDirective.ts" />
+    <Content Include="Assets\TypeScripts\Directives\workspaceSizeDirective.ts" />
+    <Content Include="Assets\TypeScripts\globals.ts" />
+    <Content Include="Assets\TypeScripts\Models\appModels.ts" />
+    <Content Include="Assets\TypeScripts\route.ts" />
+    <Content Include="Assets\TypeScripts\Services\httpService.ts" />
+    <Content Include="Assets\TypeScripts\Services\parseService.ts" />
+    <Content Include="Assets\TypeScripts\Services\reportService.ts" />
+    <Content Include="Assets\TypeScripts\Services\safeApplyService.ts" />
+    <Content Include="Assets\TypeScripts\_references.ts" />
+    <Content Include="index.html" />
+    <Content Include="Views\Modals\cssInput.html" />
+    <Content Include="Views\Modals\urlInput.html" />
+    <Content Include="Views\Sidebar\info.html" />
+    <Content Include="Views\Sidebar\layers.html" />
+    <Content Include="Views\top.html" />
+    <Content Include="Views\visualizer.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api.php" />
+    <Compile Include="config.php" />
+  </ItemGroup>
+</Project>

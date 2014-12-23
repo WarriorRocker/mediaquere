@@ -1,0 +1,144 @@
+﻿@import 'mixins.less';
+
+.wrapped {
+	white-space: nowrap;
+	-ms-word-wrap: normal;
+	word-wrap: normal;
+	font-size: 0;
+	padding-right: @baseMargin;
+	text-align: left;
+
+	&.third {
+		padding-right: (@baseMargin * 2);
+	}
+
+	&.fourth {
+		padding-right: (@baseMargin * 3);
+	}
+
+	&.fifth {
+		padding-right: (@baseMargin * 4);
+	}
+
+	> .wrap {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: @baseMargin;
+		width: 50%;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&.single {
+			width: 100%;
+		}
+
+		&.third {
+			width: 33.33%;
+
+			&.two {
+				width: 66.66%;
+			}
+		}
+
+		&.fourth {
+			width: 25%;
+
+			&.two {
+				width: 50%;
+			}
+
+			&.three {
+				width: 75%;
+			}
+		}
+
+		&.fifth {
+			width: 20%;
+
+			&.two {
+				width: 40%;
+			}
+
+			&.three {
+				width: 60%;
+			}
+
+			&.four {
+				width: 80%;
+			}
+		}
+
+		&.sixth {
+			width: 16.66%;
+		}
+
+		&.eighth {
+			width: 12.5%;
+
+			&.three {
+				width: 37.5%;
+			}
+
+			&.five {
+				width: 62.5%;
+			}
+
+			&.seven {
+				width: 87.5%;
+			}
+		}
+	}
+
+	&.no-margin {
+		padding-right: 0;
+
+		> .wrap {
+			margin-left: 0;
+		}
+	}
+
+	&.no-space {
+		white-space: normal;
+	}
+}
+
+.float-wrapper {
+	overflow: hidden;
+
+	.float {
+		float: left;
+		margin-right: 15px;
+
+		&.right {
+			float: right;
+			margin-right: 0;
+			margin-left: 15px;
+		}
+	}
+
+	.overflow {
+		overflow: hidden;
+	}
+
+	&.full-height {
+		overflow: visible;
+		height: 100%;
+
+		.float,
+		.overflow {
+			height: 100%;
+		}
+	}
+
+	&.no-margin {
+		.float {
+			margin-right: 0;
+
+			&.right {
+				margin-left: 0;
+			}
+		}
+	}
+}

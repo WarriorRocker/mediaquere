@@ -1,0 +1,26 @@
+﻿#sidebar {
+	position: relative;
+	float: right;
+	height: 100%;
+	width: 200px;
+	background-color: #535353;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		//border: 1px #8F8F8F  solid;
+	}
+
+	> .inner {
+		height: 100%;
+		position: relative;
+		z-index: 1;
+	}
+}
+
+@import 'Sidebars/info.less';
+@import 'Sidebars/layers.less';

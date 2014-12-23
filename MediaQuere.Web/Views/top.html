@@ -1,0 +1,59 @@
+﻿<div id="toolbar">
+	<div class="title">
+		<span>MediaQuere</span><br />
+		<sub>the media query visualizer</sub>
+	</div>
+	<ul>
+		<li>
+			File
+			<ul>
+				<li>
+					Import
+					<ul>
+						<li url-input-modal>From Domain</li>
+						<li>From File</li>
+						<li css-input-modal>From Input</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			Canvas
+			<ul>
+				<li ng-click="app.canvas.zoom = 100">Reset Zoom</li>
+			</ul>
+		</li>
+		<li>
+			Viewport
+			<ul>
+				<li>
+					Presets
+					<ul>
+						<li ng-repeat="section in app.presets">
+							{{section.name}}
+							<ul>
+								<li ng-repeat="preset in section.presets" ng-click="app.setCanvas(preset)">
+									{{preset.name}}
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			Layers
+			<ul>
+				<li>
+					Themes
+					<ul>
+						<li ng-repeat="theme in app.layerThemes" ng-click="app.layerTheme = $index">
+							{{theme.name}}
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Help</li>
+	</ul>
+</div>

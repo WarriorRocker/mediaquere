@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html ng-app="MediaQuere">
+<head>
+	<base href="/">
+	<title site-title>Media Quere</title>
+
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+	<link type="text/css" rel="stylesheet" href="Assets/Styles/responsive.css" />
+
+	<script src="Assets/JavaScripts/scripts.js"></script>
+	<script src="Assets/TypeScripts/typescripts.js"></script>
+</head>
+<body ng-controller="appController">
+	<div id="app">
+		<div class="top">
+			<div ng-include="'Views/top.html'"></div>
+		</div>
+		<div class="bottom">
+			<div id="sidebar">
+				<div class="inner">
+					<div class="top">
+						<div ng-include="'Views/Sidebar/info.html'"></div>
+					</div>
+					<div class="tabs" sidebar-tabs-scroll>
+						<div ng-include="'Views/Sidebar/layers.html'"></div>
+					</div>
+				</div>
+			</div>
+			<div id="workspace">
+				<div ng-click="app.zoom(-10)">Zoom Out</div>
+				<div ng-click="app.zoom(10)">Zoom In</div>
+				<div ng-click="app.switchOrientation()">Switch Orientation</div>
+				<div class="inner" workspace-size width="app.canvas.canvasWidth" height="app.canvas.canvasHeight">
+					<div ng-include="'Views/visualizer.html'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿#visualize {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	width: 10000px;
+	height: 10000px;
+	margin-top: -5000px;
+	margin-left: -5000px;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+
+	.viewport {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 2;
+		pointer-events: none;
+
+		div {
+			background: url('../Images/selection.gif') repeat;
+		}
+
+		.top,
+		.bottom {
+			position: absolute;
+			left: 0;
+			right: 0;
+			height: 1px;
+		}
+
+		.top {
+			top: 0;
+		}
+
+		.bottom {
+			bottom: 0;
+		}
+
+		.left,
+		.right {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 1px;
+		}
+
+		.left {
+			left: 0;
+		}
+
+		.right {
+			right: 0;
+		}
+	}
+
+	.block {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		height: 100%;
+		margin-left: -50%;
+		margin-top: -50%;
+		overflow: hidden;
+
+		&.hover {
+			z-index: 2;
+		}
+
+		.border {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border: 1px transparent solid;
+		}
+
+		&.inner {
+			overflow: visible;
+
+			.top,
+			.bottom {
+				position: absolute;
+				left: 50%;
+				right: 0;
+				height: 5000px;
+				width: 10000px;
+				margin-left: -5000px;
+			}
+
+			.top {
+				bottom: 100%;
+			}
+
+			.bottom {
+				top: 100%;
+			}
+
+			.left,
+			.right {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 5000px;
+			}
+
+			.left {
+				right: 100%;
+			}
+
+			.right {
+				left: 100%;
+			}
+		}
+
+		.drag {
+			.n, .s, .e, .w {
+				position: absolute;
+				z-index: 1;
+			}
+
+			.e, .w {
+				width: 10px;
+				top: -4px;
+				bottom: -4px;
+			}
+
+			.e {
+				right: -4px;
+				cursor: e-resize;
+			}
+
+			.w {
+				left: -4px;
+				cursor: w-resize;
+			}
+
+			.n, .s {
+				height: 10px;
+				left: -4px;
+				right: -4px;
+			}
+
+			.n {
+				top: -4px;
+				cursor: n-resize;
+			}
+
+			.s {
+				bottom: -4px;
+				cursor: s-resize;
+			}
+
+			.ne, .se, .nw, .sw {
+				position: absolute;
+				z-index: 2;
+				width: 10px;
+				height: 10px;
+			}
+
+			.ne {
+				top: -4px;
+				right: -4px;
+				cursor: ne-resize;
+			}
+
+			.se {
+				bottom: -4px;
+				right: -4px;
+				cursor: se-resize;
+			}
+
+			.nw {
+				top: -4px;
+				left: -4px;
+				cursor: nw-resize;
+			}
+
+			.sw {
+				bottom: -4px;
+				left: -4px;
+				cursor: sw-resize;
+			}
+		}
+	}
+}

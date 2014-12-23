@@ -1,0 +1,62 @@
+﻿@import 'mixins.less';
+
+.button {
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	height: 32px;
+	white-space: nowrap;
+	.gradient(#2A91D3, #2A91D3, #1857B6);
+
+	&:after {
+		content: '';
+		height: 100%;
+		width: 0px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&.input-height {
+		height: 27px;
+	}
+
+	span {
+		display: inline-block;
+		margin: 2px 20px 0px;
+		vertical-align: middle;
+		color: #FFF;
+		text-transform: uppercase;
+		font-size: 17px;
+		line-height: 17px;
+	}
+
+	&:hover {
+		text-decoration: none;
+		.gradient(#1857B6, #1857B6, #2A91D3);
+	}
+
+	&.disabled {
+		.gradient(#222, #333, #444);
+		cursor: default;
+
+		span {
+			color: #FFF;
+		}
+
+		&:hover {
+			.gradient(#222, #333, #444);
+		}
+
+		&.blue3 {
+			border: 1px #000000 solid;
+		}
+	}
+
+	&.full-width {
+		display: block;
+
+		span {
+			margin: 2px 0 0;
+		}
+	}
+}

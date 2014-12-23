@@ -1,0 +1,15 @@
+{
+	"name": "GruntBuild",
+	"version": "0.1.0",
+	"author": "Travis Brown",
+	"private": true,
+	"devDependencies": {
+		"grunt": "~0.4.0",
+		"grunt-contrib-concat": "^0.5.0",
+		"grunt-contrib-less": "*",
+		"grunt-contrib-watch": "*",
+		"grunt-nodemon": "*",
+		"grunt-ts": "*",
+		"matchdep": "*"
+	}
+}

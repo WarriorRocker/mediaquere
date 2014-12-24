@@ -37,6 +37,10 @@
     <Folder Include="Assets\TypeScripts\Directives\Modals\" />
     <Folder Include="Assets\TypeScripts\Models\" />
     <Folder Include="Assets\TypeScripts\Services\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="References\" />
+    <Folder Include="References\AltoRouter\" />
+    <Folder Include="Services\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Modals\" />
     <Folder Include="Views\Sidebar\" />
@@ -102,5 +106,9 @@
   <ItemGroup>
     <Compile Include="api.php" />
     <Compile Include="config.php" />
+    <Compile Include="Controllers\ImportController.php" />
+    <Compile Include="References\AltoRouter\AltoRouter.php" />
+    <Compile Include="Services\DomainImporter.php" />
+    <Compile Include="Services\Routing.php" />
   </ItemGroup>
 </Project>

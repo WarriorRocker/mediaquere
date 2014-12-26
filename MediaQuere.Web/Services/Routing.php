@@ -8,13 +8,16 @@
  * @version 1.0
  * @author robertbrown
  */
+
+namespace MediaQuere\Web\Services;
+
 class Routing
 {
     var $router;
 	var $namespace = 'MediaQuere\\Web\\Controllers';
 	
 	public function __construct() {
-		$this->router = new AltoRouter();
+		$this->router = new \AltoRouter();
 		$this->router->setBasePath('/api');
 		
 		$this->router->map('GET|POST', '/[a:controller]/[a:action]?/[i:id]?', 'routing');
@@ -28,10 +31,13 @@ class Routing
 				return $target;
 			}
 			
-			$Controller = new $target['controller']();
-			
-			return call_user_func(array($Controller, $target['method']), $this->GetRequestData($match['params']));
+			return call_user_func(array(new $target['class'](), $target['method']), $this->GetRequestData($match['params']));
 		}
+		
+		return array(
+			'success' => false,
+			'success_msg' => 'Requested route does not match any given mapping.'
+		);
 	}
 	
 	private function FindClassAndMethod($route) {

@@ -52,6 +52,6 @@ class parseService {
 	}
 
 	url2css(url: string) {
-		return this.httpService.requestData(appConfiguration.app.apiUrl + '?url=' + url);
+		return this.httpService.post(appConfiguration.app.apiUrl + 'import/domain', { url: url });
 	}
 }

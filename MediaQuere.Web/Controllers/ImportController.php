@@ -11,14 +11,26 @@
 
 namespace MediaQuere\Web\Controllers;
 
+use MediaQuere\Web\Services;
+
 class ImportController
 {
     public function Index() {
+		return array(
+			'success' => false,
+			'success_msg' => 'No import method specified.'
+		);
 	}
 	
-	public function Domain($domain) {
-		echo $domain;
-		$importer = new DomainImporter();
-		print_r($importer->Get($domain));
+	public function Domain($params) {
+		if (!isset($params['url'])) {
+			return array(
+				'success' => false,
+				'success_msg' => 'No url given.'
+			);
+		}
+		
+		$importer = new Services\DomainImporter();
+		return $importer->Get($params['url']);
 	}
 }

@@ -15,6 +15,7 @@ class appController {
 	presets: Array<PresetSectionModel>;
 
 	layerOpts: any;
+	viewportOpts: any;
 
 	constructor(private $scope, private safeApply, private parseService: parseService) {
 		this.$scope.app = this;
@@ -28,6 +29,10 @@ class appController {
 
 		this.layerOpts = {
 			showMatchedInViewport: false
+		};
+
+		this.viewportOpts = {
+			orientationSwitched: false
 		};
 
 		this.layerThemes = appConfiguration.layerThemes;
@@ -115,6 +120,7 @@ class appController {
 	}
 
 	switchOrientation() {
+		this.viewportOpts.orientationSwitched = !this.viewportOpts.orientationSwitched;
 		var temp = this.canvas.width;
 		this.canvas.width = this.canvas.height;
 		this.canvas.height = temp;

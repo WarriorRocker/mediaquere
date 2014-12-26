@@ -14,6 +14,8 @@ class appController {
 	canvas: CanvasModel;
 	presets: Array<PresetSectionModel>;
 
+	layerOpts: any;
+
 	constructor(private $scope, private safeApply, private parseService: parseService) {
 		this.$scope.app = this;
 
@@ -22,6 +24,10 @@ class appController {
 			height: 480,
 			zoom: 100,
 			density: 1
+		};
+
+		this.layerOpts = {
+			showMatchedInViewport: false
 		};
 
 		this.layerThemes = appConfiguration.layerThemes;
@@ -51,8 +57,17 @@ class appController {
 
 	getLayerStyle(layer, zoom) {
 		zoom = (zoom / 100);
-		return (layer.maxWidth ? 'width: ' + (layer.maxWidth * zoom) + 'px; margin-left: -' + ((layer.maxWidth * zoom) / 2) + 'px; ' : '') +
+		return (((this.layerOpts.showMatchedInViewport) && (!this.layerOptIsMatchedInViewport(layer))) ? 'display: none; ' : '') +
+			(layer.maxWidth ? 'width: ' + (layer.maxWidth * zoom) + 'px; margin-left: -' + ((layer.maxWidth * zoom) / 2) + 'px; ' : '') +
 			(layer.maxHeight ? 'height: ' + (layer.maxHeight * zoom) + 'px; margin-top: -' + ((layer.maxHeight * zoom) / 2) + 'px; ' : '');
+	}
+
+	layerOptIsMatchedInViewport(layer) {
+		return !(((layer.maxWidth) && (layer.maxWidth <= this.canvas.width))
+			|| ((layer.minWidth) && (layer.minWidth >= this.canvas.width))
+			|| ((layer.maxHeight) && (layer.maxHeight <= this.canvas.height))
+			|| ((layer.minHeight) && (layer.minHeight >= this.canvas.height))
+			|| false);
 	}
 
 	getInnerLayerStyle(layer, zoom) {

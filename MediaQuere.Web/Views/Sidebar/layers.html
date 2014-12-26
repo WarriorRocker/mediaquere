@@ -2,7 +2,7 @@
 <div class="layers">
 	<div class="layer" ng-repeat="layer in app.layers track by $index" ng-mouseenter="layer.hover = true" ng-mouseleave="layer.hover = false">
 		<div class="hider" style="{{'border-color: ' + layer.borderColor + '; background-color: ' + layer.bgColor}}" ng-click="layer.enabled = !layer.enabled">
-			<div class="icon" ng-class="{show: layer.enabled}"></div>
+			<div class="icon" ng-class="{show: layer.enabled && !(!app.layerOpts.showDuplicates && layer.duplicate)}"></div>
 		</div>
 		<div class="row">
 			<div class="float-wrapper">

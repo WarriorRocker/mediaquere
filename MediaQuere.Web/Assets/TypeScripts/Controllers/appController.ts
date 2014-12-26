@@ -28,7 +28,8 @@ class appController {
 		};
 
 		this.layerOpts = {
-			showMatchedInViewport: false
+			showMatchedInViewport: false,
+			showDuplicates: false
 		};
 
 		this.viewportOpts = {
@@ -62,7 +63,8 @@ class appController {
 
 	getLayerStyle(layer, zoom) {
 		zoom = (zoom / 100);
-		return (((this.layerOpts.showMatchedInViewport) && (!this.layerOptIsMatchedInViewport(layer))) ? 'display: none; ' : '') +
+		return ((!layer.enabled) || ((!this.layerOpts.showDuplicates) && (layer.duplicate)) ||
+			(((this.layerOpts.showMatchedInViewport) && (!this.layerOptIsMatchedInViewport(layer)))) ? 'display: none; ' : '') +
 			(layer.maxWidth ? 'width: ' + (layer.maxWidth * zoom) + 'px; margin-left: -' + ((layer.maxWidth * zoom) / 2) + 'px; ' : '') +
 			(layer.maxHeight ? 'height: ' + (layer.maxHeight * zoom) + 'px; margin-top: -' + ((layer.maxHeight * zoom) / 2) + 'px; ' : '');
 	}

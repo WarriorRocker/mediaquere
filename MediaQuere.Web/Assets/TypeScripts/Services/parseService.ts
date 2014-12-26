@@ -18,7 +18,10 @@ class parseService {
 					var nested = queries[i].split(',');
 
 					for (var n = 0; n < nested.length; n++) {
-						var layer: LayerModel = { enabled: true };
+						var layer: LayerModel = {
+							enabled: true,
+							duplicate: false
+						};
 
 						var maxWidth = nested[n].match(/\(max-width:(.*?)px\)/);
 						if (maxWidth) layer.maxWidth = parseInt(maxWidth[1]);
@@ -42,7 +45,7 @@ class parseService {
 			for (i = 0; i < layers.length; i++) {
 				for (n = i + 1; n < layers.length; n++) {
 					if (angular.equals(layers[i], layers[n])) {
-						layers[n].enabled = false;
+						layers[n].duplicate = true;
 					}
 				}
 			}

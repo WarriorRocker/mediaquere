@@ -1,5 +1,5 @@
 ﻿// Service to safely apply scope changes
-appServices.factory('safeApply', [
+appServices.factory('safeApply',
 	function ($rootScope) {
 		return function ($scope, fn) {
 			var phase = $scope.$root.$$phase;
@@ -16,4 +16,4 @@ appServices.factory('safeApply', [
 			}
 		}
 	}
-]);
+);

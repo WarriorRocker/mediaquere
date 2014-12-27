@@ -1,5 +1,5 @@
 ﻿// Directive to allow the resizing of a layer
-appDirectives.directive('layerResize', ['safeApply', (safeApply) => {
+appDirectives.directive('layerResize', (safeApply) => {
 	return {
 		scope: {
 			width: '=',
@@ -8,7 +8,7 @@ appDirectives.directive('layerResize', ['safeApply', (safeApply) => {
 		},
 		link: ($scope, element: JQuery, attr) => new layerResize($scope, element, attr, safeApply)
 	};
-}]);
+});
 
 class layerResize {
 	constructor(private $scope, private element, private attr, private safeApply) {

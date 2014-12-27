@@ -1,4 +1,6 @@
-﻿appServices.factory('httpService', ['$http', ($http) => new httpService($http)]);
+﻿appServices.factory('httpService',
+	($http) => new httpService($http)
+	);
 
 interface IMessage {
 	field: string;

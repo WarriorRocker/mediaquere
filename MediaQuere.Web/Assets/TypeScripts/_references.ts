@@ -10,7 +10,6 @@
 
 /// <reference path="Services/httpService.ts" />
 /// <reference path="Services/parseService.ts" />
-/// <reference path="Services/reportService.ts" />
 /// <reference path="Services/safeApplyService.ts" />
 
 /// <reference path="Controllers/appController.ts" />

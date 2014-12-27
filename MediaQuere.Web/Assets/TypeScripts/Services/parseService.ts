@@ -1,6 +1,6 @@
-﻿appServices.factory('parseService', ['httpService',
+﻿appServices.factory('parseService',
 	(httpService) => new parseService(httpService)
-]);
+	);
 
 class parseService {
 

@@ -1,12 +1,12 @@
 ﻿// Directive to allow the resizing of a layer
-appDirectives.directive('visualizerZoom', ['safeApply', (safeApply) => {
+appDirectives.directive('visualizerZoom', (safeApply) => {
 	return {
 		scope: {
 			zoom: '='
 		},
 		link: ($scope, element: JQuery, attr) => new visualizerZoom($scope, element, attr, safeApply)
 	};
-}]);
+});
 
 class visualizerZoom {
 	constructor(private $scope, private element, private attr, private safeApply) {

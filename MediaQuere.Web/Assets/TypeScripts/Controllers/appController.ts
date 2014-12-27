@@ -1,7 +1,7 @@
 ﻿// Controller for application
-appControllers.controller('appController', ['$scope', 'safeApply', 'parseService',
+appControllers.controller('appController',
 	($scope, safeApply, parseService) => new appController($scope, safeApply, parseService)
-]);
+	);
 
 class appController {
 	layerThemes: Array<any>;
@@ -115,7 +115,7 @@ class appController {
 			maxWidth = Math.max(maxWidth, ((this.layers[i].maxWidth != -1) ? this.layers[i].maxWidth : maxWidth));
 			minWidth = Math.min(minWidth, ((this.layers[i].minWidth != -1) ? this.layers[i].minWidth : minWidth));
 			maxHeight = Math.max(maxHeight, ((this.layers[i].maxHeight != -1) ? this.layers[i].maxHeight : maxHeight));
-			minHeight = Math.min(minHeight, ((this.layers[i].minHeight != -1) ? this.layers[i].minHeight: minHeight));
+			minHeight = Math.min(minHeight, ((this.layers[i].minHeight != -1) ? this.layers[i].minHeight : minHeight));
 		}
 
 		this.layerStats.maxWidth = maxWidth;

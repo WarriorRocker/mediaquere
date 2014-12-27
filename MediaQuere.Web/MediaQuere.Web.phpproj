@@ -91,7 +91,6 @@
     <Content Include="Assets\TypeScripts\route.ts" />
     <Content Include="Assets\TypeScripts\Services\httpService.ts" />
     <Content Include="Assets\TypeScripts\Services\parseService.ts" />
-    <Content Include="Assets\TypeScripts\Services\reportService.ts" />
     <Content Include="Assets\TypeScripts\Services\safeApplyService.ts" />
     <Content Include="Assets\TypeScripts\_references.ts" />
     <Content Include="index.html" />

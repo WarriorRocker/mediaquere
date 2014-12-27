@@ -1,5 +1,5 @@
 ﻿// Directive to update canvas size when browser is resized
-appDirectives.directive('workspaceSize', ['safeApply', (safeApply) => {
+appDirectives.directive('workspaceSize', (safeApply) => {
 	return {
 		scope: {
 			width: '=',
@@ -7,7 +7,7 @@ appDirectives.directive('workspaceSize', ['safeApply', (safeApply) => {
 		},
 		link: ($scope, element: JQuery, attr) => new workspaceSize($scope, element, attr, safeApply)
 	};
-}]);
+});
 
 class workspaceSize {
 	constructor(private $scope, private element, private attr, private safeApply) {

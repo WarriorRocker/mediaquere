@@ -1,8 +1,4 @@
-﻿/// <reference path="Definitions/angular.d.ts" />
-/// <reference path="Definitions/jquery.d.ts" />
-/// <reference path="definitions/angular-route.d.ts" />
-
-// Controller Object
+﻿// Controller Object
 var appControllers = angular.module('appControllers', []);
 
 // Services Object

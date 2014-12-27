@@ -6,9 +6,9 @@
 		<div class="left"></div>
 	</div>
 	<div ng-repeat="layer in app.layers track by $index" class="block {{(layer.hover ? 'hover' : '')}}"
-		 style="{{app.getLayerStyle(layer, app.canvas.zoom) + ((layer.minWidth || layer.minHeight) ? '' : 'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor))}}">
+		 style="{{app.getLayerStyle(layer, app.canvas.zoom) + ((layer.minWidth != -1 || layer.minHeight != -1) ? '' : 'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor))}}">
 		<div class="border" style="{{'border-color: ' + layer.borderColor}}"></div>
-		<div ng-if="(layer.minWidth || layer.minHeight)" class="block inner" style="{{app.getInnerLayerStyle(layer, app.canvas.zoom)}}">
+		<div ng-if="(layer.minWidth != -1 || layer.minHeight != -1)" class="block inner" style="{{app.getInnerLayerStyle(layer, app.canvas.zoom)}}">
 			<div class="border" style="{{'border-color: ' + layer.borderColor}}"></div>
 			<div class="top" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
 			<div class="bottom" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>

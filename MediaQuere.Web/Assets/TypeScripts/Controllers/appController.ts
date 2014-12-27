@@ -17,6 +17,8 @@ class appController {
 	layerOpts: any;
 	viewportOpts: any;
 
+	layerStats: any;
+
 	constructor(private $scope, private safeApply, private parseService: parseService) {
 		this.$scope.app = this;
 
@@ -36,6 +38,13 @@ class appController {
 			orientationSwitched: false
 		};
 
+		this.layerStats = {
+			maxWidth: 0,
+			minWidth: 0,
+			maxHeight: 0,
+			minHeight: 0
+		};
+
 		this.layerThemes = appConfiguration.layerThemes;
 		this.presets = appConfiguration.canvasPresets;
 
@@ -43,6 +52,8 @@ class appController {
 
 		this.$scope.$watchGroup(['app.layers', 'app.layerTheme'], () => {
 			this.setLayersTheme(this.layers);
+			this.setLayerStats();
+			console.log(this.layers);
 		});
 	}
 
@@ -55,7 +66,6 @@ class appController {
 			//todo implement multiple sheets
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
-				console.log(data[i].data);
 				this.layers = this.layers.concat(this.layers, this.parseService.css2layers(data[i].data));
 			}
 		});
@@ -65,22 +75,22 @@ class appController {
 		zoom = (zoom / 100);
 		return ((!layer.enabled) || ((!this.layerOpts.showDuplicates) && (layer.duplicate)) ||
 			(((this.layerOpts.showMatchedInViewport) && (!this.layerOptIsMatchedInViewport(layer)))) ? 'display: none; ' : '') +
-			(layer.maxWidth ? 'width: ' + (layer.maxWidth * zoom) + 'px; margin-left: -' + ((layer.maxWidth * zoom) / 2) + 'px; ' : '') +
-			(layer.maxHeight ? 'height: ' + (layer.maxHeight * zoom) + 'px; margin-top: -' + ((layer.maxHeight * zoom) / 2) + 'px; ' : '');
+			((layer.maxWidth != -1) ? 'width: ' + (layer.maxWidth * zoom) + 'px; margin-left: -' + ((layer.maxWidth * zoom) / 2) + 'px; ' : '') +
+			((layer.maxHeight != -1) ? 'height: ' + (layer.maxHeight * zoom) + 'px; margin-top: -' + ((layer.maxHeight * zoom) / 2) + 'px; ' : '');
 	}
 
 	layerOptIsMatchedInViewport(layer) {
-		return !(((layer.maxWidth) && (layer.maxWidth <= this.canvas.width))
-			|| ((layer.minWidth) && (layer.minWidth >= this.canvas.width))
-			|| ((layer.maxHeight) && (layer.maxHeight <= this.canvas.height))
-			|| ((layer.minHeight) && (layer.minHeight >= this.canvas.height))
+		return !(((layer.maxWidth != -1) && (layer.maxWidth <= this.canvas.width))
+			|| ((layer.minWidth != -1) && (layer.minWidth >= this.canvas.width))
+			|| ((layer.maxHeight != -1) && (layer.maxHeight <= this.canvas.height))
+			|| ((layer.minHeight != -1) && (layer.minHeight >= this.canvas.height))
 			|| false);
 	}
 
 	getInnerLayerStyle(layer, zoom) {
 		zoom = (zoom / 100);
-		return (layer.minWidth ? 'width: ' + (layer.minWidth * zoom) + 'px; margin-left: -' + ((layer.minWidth * zoom) / 2) + 'px; ' : '') +
-			(layer.minHeight ? 'height: ' + (layer.minHeight * zoom) + 'px; margin-top: -' + ((layer.minHeight * zoom) / 2) + 'px;' : '');
+		return ((layer.minWidth != -1) ? 'width: ' + (layer.minWidth * zoom) + 'px; margin-left: -' + ((layer.minWidth * zoom) / 2) + 'px; ' : '') +
+			((layer.minHeight != -1) ? 'height: ' + (layer.minHeight * zoom) + 'px; margin-top: -' + ((layer.minHeight * zoom) / 2) + 'px;' : '');
 	}
 
 	setLayersTheme(layers) {
@@ -93,6 +103,25 @@ class appController {
 				layers[i].hoverBgColor = theme.hoverBgColor;
 			}
 		}
+	}
+
+	setLayerStats() {
+		var maxWidth = 0,
+			minWidth = Number.MAX_VALUE,
+			maxHeight = 0,
+			minHeight = Number.MAX_VALUE;
+
+		for (var i = 0; i < this.layers.length; i++) {
+			maxWidth = Math.max(maxWidth, ((this.layers[i].maxWidth != -1) ? this.layers[i].maxWidth : maxWidth));
+			minWidth = Math.min(minWidth, ((this.layers[i].minWidth != -1) ? this.layers[i].minWidth : minWidth));
+			maxHeight = Math.max(maxHeight, ((this.layers[i].maxHeight != -1) ? this.layers[i].maxHeight : maxHeight));
+			minHeight = Math.min(minHeight, ((this.layers[i].minHeight != -1) ? this.layers[i].minHeight: minHeight));
+		}
+
+		this.layerStats.maxWidth = maxWidth;
+		this.layerStats.minWidth = Math.min(minWidth, maxWidth);
+		this.layerStats.maxHeight = maxHeight;
+		this.layerStats.minHeight = Math.min(minHeight, maxHeight);
 	}
 
 	zoom(factor) {

@@ -24,18 +24,18 @@ class parseService {
 						};
 
 						var maxWidth = nested[n].match(/\(max-width:(.*?)px\)/);
-						if (maxWidth) layer.maxWidth = parseInt(maxWidth[1]);
+						layer.maxWidth = ((maxWidth) ? parseInt(maxWidth[1]) : -1);
 
 						var maxHeight = nested[n].match(/\(max-height:(.*?)px\)/);
-						if (maxHeight) layer.maxHeight = parseInt(maxHeight[1]);
+						layer.maxHeight = ((maxHeight) ? parseInt(maxHeight[1]) : -1);
 
 						var minWidth = nested[n].match(/\(min-width:(.*?)px\)/);
-						if (minWidth) layer.minWidth = parseInt(minWidth[1]);
+						layer.minWidth = ((minWidth) ? parseInt(minWidth[1]) : -1);
 
 						var minHeight = nested[n].match(/\(min-height:(.*?)px\)/);
-						if (minHeight) layer.minHeight = parseInt(minHeight[1]);
+						layer.minHeight = ((minHeight) ? parseInt(minHeight[1]) : -1);
 
-						if ((layer.maxWidth) || (layer.maxHeight) || (layer.minWidth) || (layer.minHeight)) {
+						if ((layer.maxWidth != -1) || (layer.maxHeight != -1) || (layer.minWidth != -1) || (layer.minHeight != -1)) {
 							layers.push(layer);
 						}
 					}

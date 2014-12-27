@@ -12,10 +12,10 @@
 				<div class="overflow">
 					<div class="wrapped">
 						<div class="wrap">
-							<span>width: {{layer.maxWidth ? layer.maxWidth + 'px' : 'auto'}}</span>
+							<span>width: {{layer.maxWidth != -1 ? layer.maxWidth + 'px' : 'auto'}}</span>
 						</div>
 						<div class="wrap">
-							<span>height: {{layer.maxHeight ? layer.maxHeight + 'px' : 'auto'}};</span>
+							<span>height: {{layer.maxHeight != -1 ? layer.maxHeight + 'px' : 'auto'}};</span>
 						</div>
 					</div>
 				</div>
@@ -29,10 +29,10 @@
 				<div class="overflow">
 					<div class="wrapped">
 						<div class="wrap">
-							<span>width: {{layer.minWidth ? layer.minWidth + 'px' : 'auto'}};</span>
+							<span>width: {{layer.minWidth != -1 ? layer.minWidth + 'px' : 'auto'}};</span>
 						</div>
 						<div class="wrap">
-							<span>height: {{layer.minHeight ? layer.minHeight + 'px' : 'auto'}};</span>
+							<span>height: {{layer.minHeight != -1 ? layer.minHeight + 'px' : 'auto'}};</span>
 						</div>
 					</div>
 				</div>

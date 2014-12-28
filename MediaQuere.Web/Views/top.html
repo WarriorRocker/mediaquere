@@ -44,13 +44,13 @@
 				</li>
 			</ul>
 		</li>
-		<li>
+		<li ng-controller="layersToolbarController">
 			Layers
 			<ul>
 				<li>
 					Themes
 					<ul>
-						<li ng-repeat="theme in app.layerThemes" ng-click="app.layerTheme = $index">
+						<li ng-repeat="theme in toolbar.layerThemes" ng-click="toolbar.setTheme($index)">
 							{{theme.name}}
 						</li>
 					</ul>

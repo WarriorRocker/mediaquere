@@ -14,6 +14,7 @@
 
 /// <reference path="Controllers/appController.ts" />
 /// <reference path="Controllers/modalController.ts" />
+/// <reference path="Controllers/toolbarController.ts" />
 
 /// <reference path="Directives/Modals/cssInputModalDirective.ts" />
 /// <reference path="Directives/Modals/urlInputModalDirective.ts" />
@@ -23,4 +24,5 @@
 /// <reference path="Directives/visualizerZoomDirective.ts" />
 /// <reference path="Directives/workspaceSizeDirective.ts" />
 //grunt-start
+/// <reference path="Controllers/Toolbar/layersToolbarController.ts" />
 //grunt-end

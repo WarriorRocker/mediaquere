@@ -1,4 +1,8 @@
-﻿interface PresetSectionModel {
+﻿interface IAppRootScope extends ng.IScope {
+	layers: Array<LayerModel>;
+}
+
+interface PresetSectionModel {
 	name: string;
 	presets: Array<PresetModel>;
 }
@@ -24,4 +28,7 @@ interface LayerModel {
 	maxHeight?: number;
 	minWidth?: number;
 	minHeight?: number;
+	bgColor?: string;
+	borderColor?: string;
+	hoverBgColor?: string;
 } 

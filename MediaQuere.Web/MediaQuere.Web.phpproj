@@ -32,6 +32,7 @@
     <Folder Include="Assets\Styles\Sidebars\" />
     <Folder Include="Assets\TypeScripts\" />
     <Folder Include="Assets\TypeScripts\Controllers\" />
+    <Folder Include="Assets\TypeScripts\Controllers\Toolbar\" />
     <Folder Include="Assets\TypeScripts\Definitions\" />
     <Folder Include="Assets\TypeScripts\Directives\" />
     <Folder Include="Assets\TypeScripts\Directives\Modals\" />
@@ -75,8 +76,10 @@
     <Content Include="Assets\Styles\workspace.less" />
     <Content Include="Assets\Styles\wraps.less" />
     <Content Include="Assets\TypeScripts\app.ts" />
+    <Content Include="Assets\TypeScripts\Controllers\toolbarController.ts" />
     <Content Include="Assets\TypeScripts\Controllers\appController.ts" />
     <Content Include="Assets\TypeScripts\Controllers\modalController.ts" />
+    <Content Include="Assets\TypeScripts\Controllers\Toolbar\layersToolbarController.ts" />
     <Content Include="Assets\TypeScripts\Definitions\angular-route.d.ts" />
     <Content Include="Assets\TypeScripts\Definitions\angular.d.ts" />
     <Content Include="Assets\TypeScripts\Definitions\jquery.d.ts" />

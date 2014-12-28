@@ -1,16 +1,12 @@
 ﻿// Controller for application
 appControllers.controller('appController',
-	($scope, safeApply, parseService) => new appController($scope, safeApply, parseService)
+	($scope, $rootScope, safeApply, parseService) => new appController($scope, $rootScope, safeApply, parseService)
 	);
 
 class appController {
-	layerThemes: Array<any>;
-	layerTheme: number;
-
 	cssInput: string;
 	urlInput: string;
 
-	layers: Array<LayerModel> = [];
 	canvas: CanvasModel;
 	presets: Array<PresetSectionModel>;
 
@@ -19,8 +15,10 @@ class appController {
 
 	layerStats: any;
 
-	constructor(private $scope, private safeApply, private parseService: parseService) {
+	constructor(private $scope, private $rootScope: IAppRootScope, private safeApply, private parseService: parseService) {
 		this.$scope.app = this;
+
+		this.$rootScope.layers = [];
 
 		this.canvas = {
 			width: 720,
@@ -45,20 +43,12 @@ class appController {
 			minHeight: 0
 		};
 
-		this.layerThemes = appConfiguration.layerThemes;
+		//todo move to api call
 		this.presets = appConfiguration.canvasPresets;
-
-		this.layerTheme = 0;
-
-		this.$scope.$watchGroup(['app.layers', 'app.layerTheme'], () => {
-			this.setLayersTheme(this.layers);
-			this.setLayerStats();
-			console.log(this.layers);
-		});
 	}
 
 	importCssInput() {
-		this.layers = this.parseService.css2layers(this.cssInput);
+		this.$rootScope.layers = this.parseService.css2layers(this.cssInput);
 	}
 
 	importCssUrl() {
@@ -66,7 +56,7 @@ class appController {
 			//todo implement multiple sheets
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
-				this.layers = this.layers.concat(this.layers, this.parseService.css2layers(data[i].data));
+				this.$rootScope.layers = this.$rootScope.layers.concat(this.$rootScope.layers, this.parseService.css2layers(data[i].data));
 			}
 		});
 	}
@@ -93,29 +83,17 @@ class appController {
 			((layer.minHeight != -1) ? 'height: ' + (layer.minHeight * zoom) + 'px; margin-top: -' + ((layer.minHeight * zoom) / 2) + 'px;' : '');
 	}
 
-	setLayersTheme(layers) {
-		if (angular.isDefined(layers)) {
-			for (var i = 0; i < layers.length; i++) {
-				var theme = this.layerThemes[this.layerTheme].layers[(i % this.layerThemes[this.layerTheme].layers.length)];
-
-				layers[i].bgColor = theme.bgColor;
-				layers[i].borderColor = theme.borderColor;
-				layers[i].hoverBgColor = theme.hoverBgColor;
-			}
-		}
-	}
-
 	setLayerStats() {
 		var maxWidth = 0,
 			minWidth = Number.MAX_VALUE,
 			maxHeight = 0,
 			minHeight = Number.MAX_VALUE;
 
-		for (var i = 0; i < this.layers.length; i++) {
-			maxWidth = Math.max(maxWidth, ((this.layers[i].maxWidth != -1) ? this.layers[i].maxWidth : maxWidth));
-			minWidth = Math.min(minWidth, ((this.layers[i].minWidth != -1) ? this.layers[i].minWidth : minWidth));
-			maxHeight = Math.max(maxHeight, ((this.layers[i].maxHeight != -1) ? this.layers[i].maxHeight : maxHeight));
-			minHeight = Math.min(minHeight, ((this.layers[i].minHeight != -1) ? this.layers[i].minHeight : minHeight));
+		for (var i = 0; i < this.$rootScope.layers.length; i++) {
+			maxWidth = Math.max(maxWidth, ((this.$rootScope.layers[i].maxWidth != -1) ? this.$rootScope.layers[i].maxWidth : maxWidth));
+			minWidth = Math.min(minWidth, ((this.$rootScope.layers[i].minWidth != -1) ? this.$rootScope.layers[i].minWidth : minWidth));
+			maxHeight = Math.max(maxHeight, ((this.$rootScope.layers[i].maxHeight != -1) ? this.$rootScope.layers[i].maxHeight : maxHeight));
+			minHeight = Math.min(minHeight, ((this.$rootScope.layers[i].minHeight != -1) ? this.$rootScope.layers[i].minHeight : minHeight));
 		}
 
 		this.layerStats.maxWidth = maxWidth;

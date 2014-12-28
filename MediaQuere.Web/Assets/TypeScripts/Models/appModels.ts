@@ -1,5 +1,9 @@
 ﻿interface IAppRootScope extends ng.IScope {
+	canvas: CanvasModel;
 	layers: Array<LayerModel>;
+	settings: SettingsModel;
+	viewportPresets: Array<PresetSectionModel>;
+	layerThemes: Array<LayerThemeSectionModel>;
 }
 
 interface PresetSectionModel {
@@ -19,8 +23,7 @@ interface CanvasModel {
 	height: number;
 	zoom: number;
 	density: number;
-	canvasWidth?: number;
-	canvasHeight?: number;
+	viewport: ViewportModel;
 }
 
 interface LayerModel {
@@ -31,4 +34,38 @@ interface LayerModel {
 	bgColor?: string;
 	borderColor?: string;
 	hoverBgColor?: string;
-} 
+}
+
+interface ViewportModel {
+	width: number;
+	height: number;
+	density: number;
+}
+
+interface LayerThemeSectionModel {
+	name: string;
+	layers: Array<LayerThemeModel>;
+}
+
+interface LayerThemeModel {
+	name: string;
+	bgColor: string;
+	hoverBgColor: string;
+	borderColor: string;
+}
+
+interface SettingsModel {
+	layerOpts: LayerOptsModel;
+	viewportOpts: ViewportOptsModel;
+}
+
+interface LayerOptsModel {
+	curLayerTheme: number;
+	showMatchedInViewport: boolean;
+	showDuplicates: boolean;
+}
+
+interface ViewportOptsModel {
+	curViewportPreset: number;
+	orientationSwitched: boolean;
+}

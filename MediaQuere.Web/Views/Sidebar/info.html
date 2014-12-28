@@ -1,20 +1,20 @@
 ﻿<div class="info">
-	<div class="section">
+	<div class="section" canvas-info>
 		<label>Canvas</label>
 		<div class="wrapped">
 			<div class="wrap">
-				<span><b>Width:</b> {{app.getCanvasWidth()}}</span>
+				<span><b>Width:</b> {{info.width}}</span>
 			</div>
 			<div class="wrap">
-				<span><b>Height:</b> {{app.getCanvasHeight()}}</span>
+				<span><b>Height:</b> {{info.height}}</span>
 			</div>
 		</div>
 		<div class="wrapped">
 			<div class="wrap">
-				<span><b>Zoom:</b> {{app.canvas.zoom}}%</span>
+				<span><b>Zoom:</b> {{$root.canvas.zoom}}%</span>
 			</div>
 			<div class="wrap">
-				<span><b>Density:</b> {{app.canvas.density}}</span>
+				<span><b>Density:</b> {{$root.canvas.density}}</span>
 			</div>
 		</div>
 	</div>
@@ -22,29 +22,29 @@
 		<label>Viewport</label>
 		<div class="wrapped">
 			<div class="wrap">
-				<span><b>Width:</b> {{app.canvas.width}}</span>
+				<span><b>Width:</b> {{$root.canvas.viewport.width}}</span>
 			</div>
 			<div class="wrap">
-				<span><b>Height:</b> {{app.canvas.height}}</span>
+				<span><b>Height:</b> {{$root.canvas.viewport.height}}</span>
 			</div>
 		</div>
 	</div>
-	<div class="section">
+	<div class="section" layers-info>
 		<label>Layers</label>
 		<div class="wrapped">
 			<div class="wrap">
-				<span><b>MaxW:</b> {{app.layerStats.maxWidth}}</span>
+				<span><b>MaxW:</b> {{info.maxWidth}}</span>
 			</div>
 			<div class="wrap">
-				<span><b>MaxH:</b> {{app.layerStats.maxHeight}}</span>
+				<span><b>MaxH:</b> {{info.maxHeight}}</span>
 			</div>
 		</div>
 		<div class="wrapped">
 			<div class="wrap">
-				<span><b>MinW:</b> {{app.layerStats.minWidth}}</span>
+				<span><b>MinW:</b> {{info.minWidth}}</span>
 			</div>
 			<div class="wrap">
-				<span><b>MinH:</b> {{app.layerStats.minHeight}}</span>
+				<span><b>MinH:</b> {{info.minHeight}}</span>
 			</div>
 		</div>
 	</div>

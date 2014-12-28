@@ -29,10 +29,10 @@
 				<li>
 					Presets
 					<ul>
-						<li ng-repeat="section in app.presets">
+						<li ng-repeat="section in $root.viewportPresets">
 							{{section.name}}
 							<ul>
-								<li ng-repeat="preset in section.presets" ng-click="app.setCanvas(preset)">
+								<li ng-repeat="preset in section.presets" ng-click="app.setViewportPreset(preset)">
 									{{preset.name}}
 								</li>
 							</ul>
@@ -40,26 +40,26 @@
 					</ul>
 				</li>
 				<li ng-click="app.switchOrientation()">
-					Switch Orientation => {{app.viewportOpts.orientationSwitched}}
+					Switch Orientation => {{$root.settings.viewportOpts.orientationSwitched}}
 				</li>
 			</ul>
 		</li>
-		<li ng-controller="layersToolbarController">
+		<li>
 			Layers
 			<ul>
 				<li>
 					Themes
 					<ul>
-						<li ng-repeat="theme in toolbar.layerThemes" ng-click="toolbar.setTheme($index)">
+						<li ng-repeat="theme in $root.layerThemes" ng-click="$root.settings.layerOpts.curLayerTheme = $index">
 							{{theme.name}}
 						</li>
 					</ul>
 				</li>
-				<li ng-click="app.layerOpts.showDuplicates = !app.layerOpts.showDuplicates">
-					Show Duplicates => {{app.layerOpts.showDuplicates}}
+				<li ng-click="$root.settings.layerOpts.showDuplicates = !$root.settings.layerOpts.showDuplicates">
+					Show Duplicates => {{$root.settings.layerOpts.showDuplicates}}
 				</li>
-				<li ng-click="app.layerOpts.showMatchedInViewport = !app.layerOpts.showMatchedInViewport">
-					Show only matched in viewport => {{app.layerOpts.showMatchedInViewport}}
+				<li ng-click="$root.settings.layerOpts.showMatchedInViewport = !$root.settings.layerOpts.showMatchedInViewport">
+					Show only matched in viewport => {{$root.settings.layerOpts.showMatchedInViewport}}
 				</li>
 			</ul>
 		</li>

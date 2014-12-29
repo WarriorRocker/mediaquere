@@ -73,5 +73,11 @@
 			cursoropacitymin: .4,
 			cursorcolor: '#AAA'
 		}
+	},
+	codemirror: {
+		autofocus: true,
+		lineNumbers: true,
+		matchBrackets: true,
+		mode: 'text/x-less'
 	}
 };

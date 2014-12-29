@@ -12,6 +12,7 @@ class appController {
 		private parseService: parseService, private settingsService: settingsService, private canvasService: canvasService) {
 		this.$scope.app = this;
 
+		this.$rootScope.config = appConfiguration;
 		this.$rootScope.layers = [];
 		this.$rootScope.canvas = this.canvasService.getDefaultCanvas();
 		this.$rootScope.settings = this.settingsService.getDefaultSettings();

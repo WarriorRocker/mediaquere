@@ -30,8 +30,11 @@
     <Folder Include="Assets\JavaScripts\Angular\" />
     <Folder Include="Assets\JavaScripts\jQuery\" />
     <Folder Include="Assets\Fonts\" />
+    <Folder Include="Assets\JavaScripts\CodeMirror\" />
+    <Folder Include="Assets\JavaScripts\AngularUI\" />
     <Folder Include="Assets\Styles\" />
     <Folder Include="Assets\Styles\FontAwesome\" />
+    <Folder Include="Assets\Styles\CodeMirror\" />
     <Folder Include="Assets\Styles\Sidebars\" />
     <Folder Include="Assets\TypeScripts\" />
     <Folder Include="Assets\TypeScripts\Controllers\" />
@@ -57,6 +60,7 @@
     <Content Include="Assets\Fonts\FontAwesome\fontawesome-webfont.woff" />
     <Content Include="Assets\Fonts\FontAwesome\FontAwesome.otf" />
     <Content Include="Assets\Images\selection.gif" />
+    <Content Include="Assets\JavaScripts\AngularUI\ui-codemirror.js" />
     <Content Include="Assets\JavaScripts\Angular\angular-animate.js" />
     <Content Include="Assets\JavaScripts\Angular\angular-cookies.js" />
     <Content Include="Assets\JavaScripts\Angular\angular-loader.js" />
@@ -68,9 +72,13 @@
     <Content Include="Assets\JavaScripts\Angular\angular-scenario.js" />
     <Content Include="Assets\JavaScripts\Angular\angular-touch.js" />
     <Content Include="Assets\JavaScripts\Angular\angular.js" />
+    <Content Include="Assets\JavaScripts\CodeMirror\codemirror.js" />
+    <Content Include="Assets\JavaScripts\CodeMirror\css.js" />
+    <Content Include="Assets\JavaScripts\CodeMirror\matchbrackets.js" />
     <Content Include="Assets\JavaScripts\jQuery\jquery.js" />
     <Content Include="Assets\JavaScripts\jQuery\jquery.nicescroll.js" />
     <Content Include="Assets\Styles\app.less" />
+    <Content Include="Assets\Styles\CodeMirror\codemirror.css" />
     <Content Include="Assets\Styles\FontAwesome\bordered-pulled.less" />
     <Content Include="Assets\Styles\FontAwesome\core.less" />
     <Content Include="Assets\Styles\FontAwesome\fixed-width.less" />

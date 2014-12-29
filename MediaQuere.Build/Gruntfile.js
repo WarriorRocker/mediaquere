@@ -24,10 +24,12 @@ module.exports = function (grunt) {
 		concat: {
 			build: {
 				src: [
+					assetsDir + 'JavaScripts/CodeMirror/*.js',
 					assetsDir + 'JavaScripts/jQuery/jquery.js',
 					assetsDir + 'JavaScripts/jQuery/jquery*.js',
 					assetsDir + 'JavaScripts/Angular/angular.js',
-					assetsDir + 'JavaScripts/Angular/angular-*.js'
+					assetsDir + 'JavaScripts/Angular/angular-*.js',
+					assetsDir + 'JavaScripts/AngularUI/*.js'
 				],
 				dest: assetsDir + 'JavaScripts/scripts.js'
 			}

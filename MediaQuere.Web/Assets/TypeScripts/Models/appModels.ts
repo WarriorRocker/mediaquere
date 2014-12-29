@@ -1,4 +1,5 @@
 ﻿interface IAppRootScope extends ng.IScope {
+	config: any;
 	canvas: CanvasModel;
 	layers: Array<LayerModel>;
 	settings: SettingsModel;

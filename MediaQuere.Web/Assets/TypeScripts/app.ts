@@ -8,7 +8,7 @@ var appServices = angular.module('appServices', ['ngResource']);
 var appDirectives = angular.module('appDirectives', []);
 
 // Declare Application
-var mediaQuereApp = angular.module('MediaQuere', ['ngRoute', 'ngAnimate', 'appControllers', 'appServices', 'appDirectives']);
+var mediaQuereApp = angular.module('MediaQuere', ['ngRoute', 'ngAnimate', 'appControllers', 'appServices', 'appDirectives', 'ui.codemirror']);
 
 // Disable Strict Contextual Escaping
 mediaQuereApp.config(['$sceProvider', function ($sceProvider) {

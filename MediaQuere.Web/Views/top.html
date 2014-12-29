@@ -52,6 +52,7 @@
 					Themes<i class="fa fa-right fa-caret-right"></i>
 					<ul>
 						<li ng-repeat="theme in $root.layerThemes" ng-click="$root.settings.layerOpts.curLayerTheme = $index">
+							<i class="fa" ng-class="{'fa-check': $root.settings.layerOpts.curLayerTheme == $index}"></i>
 							{{theme.name}}
 						</li>
 					</ul>

@@ -61,7 +61,7 @@
 		}
 	],
 	canvas: {
-		minZoom: 25,
+		minZoom: 10,
 		maxZoom: 250
 	},
 	layers: {

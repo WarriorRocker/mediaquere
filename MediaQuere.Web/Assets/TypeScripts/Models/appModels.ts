@@ -55,8 +55,13 @@ interface LayerThemeModel {
 }
 
 interface SettingsModel {
+	viewOpts: ViewOptsModel;
 	layerOpts: LayerOptsModel;
 	viewportOpts: ViewportOptsModel;
+}
+
+interface ViewOptsModel {
+	showDesignAndCode: boolean;
 }
 
 interface LayerOptsModel {

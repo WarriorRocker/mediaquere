@@ -8,6 +8,9 @@ class settingsService {
 
 	getDefaultSettings(): SettingsModel {
 		return {
+			viewOpts: {
+				showDesignAndCode: true
+			},
 			layerOpts: {
 				curLayerTheme: 0,
 				showMatchedInViewport: false,

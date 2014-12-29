@@ -17,4 +17,33 @@
 		border: 1px #000 solid;
 		overflow: hidden;
 	}
+
+	.split {
+		height: 100%;
+
+		.design {
+			float: left;
+			overflow: hidden;
+			width: 100%;
+			position: relative;
+			height: 100%;
+		}
+
+		.code {
+			display: none;
+			overflow: hidden;
+			height: 100%;
+		}
+
+		&.showcode {
+			.design {
+				width: 50%;
+				border-right: 1px #000 solid;
+			}
+
+			.code {
+				display: inherit;
+			}
+		}
+	}
 }

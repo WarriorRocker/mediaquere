@@ -1,16 +1,17 @@
 ﻿// Directive to allow the resizing of a layer
-appDirectives.directive('visualizer', ($rootScope, safeApply) => {
+appDirectives.directive('visualizer', ($rootScope, $timeout, safeApply) => {
 	return {
-		link: ($scope, element: JQuery, attr) => new visualizerDirective($scope, $rootScope, element, attr, safeApply)
+		link: ($scope, element: JQuery, attr) => new visualizerDirective($scope, $rootScope, $timeout, element, attr, safeApply)
 	};
 });
 
 class visualizerDirective {
-	constructor(private $scope, private $rootScope: IAppRootScope, private element, private attr, private safeApply) {
+	constructor(private $scope, private $rootScope: IAppRootScope, private $timeout, private element, private attr, private safeApply) {
 		this.$scope.vis = this;
 
 		this.$rootScope.$watch('layers', () => { this.applyLayerTheme(); });
 		this.$rootScope.$watch('settings.layerOpts.curLayerTheme', () => { this.applyLayerTheme(); });
+		this.$rootScope.$watch('settings.viewOpts.showDesignAndCode', () => { this.setCanvasSize(); });
 
 		this.element.on('DOMMouseScroll', (event) => { this.scroll(event.originalEvent.detail); });
 		this.element.on('mousewheel', (event) => { this.scroll(event.originalEvent.wheelDelta); });
@@ -26,9 +27,11 @@ class visualizerDirective {
 	}
 
 	setCanvasSize() {
-		this.$rootScope.canvas.width = this.element.width();
-		this.$rootScope.canvas.height = this.element.height();
-		this.safeApply(this.$rootScope);
+		this.$timeout(() => {
+			this.$rootScope.canvas.width = this.element.width();
+			this.$rootScope.canvas.height = this.element.height();
+			this.safeApply(this.$rootScope);
+		});
 	}
 
 	applyLayerTheme() {

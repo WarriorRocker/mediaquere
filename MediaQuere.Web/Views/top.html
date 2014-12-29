@@ -18,6 +18,15 @@
 			</ul>
 		</li>
 		<li>
+			View
+			<ul>
+				<li ng-click="$root.settings.viewOpts.showDesignAndCode = !$root.settings.viewOpts.showDesignAndCode">
+					<i class="fa" ng-class="{'fa-check': $root.settings.viewOpts.showDesignAndCode}"></i>
+					Design and code view
+				</li>
+			</ul>
+		</li>
+		<li>
 			Canvas
 			<ul>
 				<li ng-click="app.canvas.zoom = 100">Reset Zoom</li>

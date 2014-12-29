@@ -31,7 +31,14 @@
 			</div>
 			<div id="workspace">
 				<div class="inner">
-					<div ng-include="'Views/visualizer.html'"></div>
+					<div class="split" ng-class="{showcode: $root.settings.viewOpts.showDesignAndCode}">
+						<div class="design">
+							<div ng-include="'Views/visualizer.html'"></div>
+						</div>
+						<div class="code">
+
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

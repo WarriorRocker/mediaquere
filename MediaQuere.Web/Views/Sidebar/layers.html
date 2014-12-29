@@ -1,40 +1,38 @@
 ﻿<h1>Layers</h1>
 <div class="layers">
 	<div class="layer" ng-repeat="layer in $root.layers track by $index" ng-mouseenter="layer.hover = true" ng-mouseleave="layer.hover = false">
-		<div class="hider" style="{{'border-color: ' + layer.borderColor + '; background-color: ' + layer.bgColor}}" ng-click="layer.enabled = !layer.enabled">
-			<div class="icon" ng-class="{show: layer.enabled && !(!app.layerOpts.showDuplicates && layer.duplicate)}"></div>
-		</div>
-		<div class="row">
-			<div class="float-wrapper">
-				<div class="float">
-					<label>&lt;</label>
+		<div class="float-wrapper no-margin">
+			<div class="float">
+				<div class="hider" ng-click="layer.enabled = !layer.enabled">
+					<i class="fa" ng-class="{'fa-eye': layer.enabled && !(!$root.settings.layerOpts.showDuplicates && layer.duplicate)}"></i>
 				</div>
-				<div class="overflow">
-					<div class="wrapped">
-						<div class="wrap">
-							<span>width: {{layer.maxWidth != -1 ? layer.maxWidth + 'px' : 'auto'}}</span>
-						</div>
-						<div class="wrap">
-							<span>height: {{layer.maxHeight != -1 ? layer.maxHeight + 'px' : 'auto'}};</span>
+				<div class="preview">
+					<div class="visualizer">
+						<div class="block" ng-class="{width: layer.maxWidth != -1, height: layer.maxHeight != -1}"
+							 style="{{(layer.minWidth != -1 || layer.minHeight != -1) ? '' : 'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}">
+							<div class="border" style="{{'border-color: ' + layer.borderColor}}"></div>
+							<div ng-if="(layer.minWidth != -1 || layer.minHeight != -1)" class="block inner"
+								 ng-class="{width: layer.minWidth != -1, height: layer.minHeight != -1}">
+								<div class="border" style="{{'border-color: ' + layer.borderColor}}"></div>
+								<div class="top" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
+								<div class="bottom" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
+								<div class="left" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
+								<div class="right" style="{{'background-color: ' + (layer.hover ? layer.hoverBgColor : layer.bgColor)}}"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="float-wrapper">
-				<div class="float">
-					<label>&gt;</label>
+			<div class="overflow">
+				<div class="row text-center">
+					<span>{{layer.minWidth != -1 ? layer.minWidth + 'px' : 'auto'}}</span>
+					<span>&gt; width &lt;</span>
+					<span>{{layer.maxWidth != -1 ? layer.maxWidth + 'px' : 'auto'}}</span>
 				</div>
-				<div class="overflow">
-					<div class="wrapped">
-						<div class="wrap">
-							<span>width: {{layer.minWidth != -1 ? layer.minWidth + 'px' : 'auto'}};</span>
-						</div>
-						<div class="wrap">
-							<span>height: {{layer.minHeight != -1 ? layer.minHeight + 'px' : 'auto'}};</span>
-						</div>
-					</div>
+				<div class="row text-center">
+					<span>{{layer.minHeight != -1 ? layer.minHeight + 'px' : 'auto'}}</span>
+					<span>&gt; height &lt;</span>
+					<span>{{layer.maxHeight != -1 ? layer.maxHeight + 'px' : 'auto'}}</span>
 				</div>
 			</div>
 		</div>

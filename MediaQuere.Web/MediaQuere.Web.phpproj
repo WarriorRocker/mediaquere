@@ -24,11 +24,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Assets\Fonts\FontAwesome\" />
     <Folder Include="Assets\Images\" />
     <Folder Include="Assets\JavaScripts\" />
     <Folder Include="Assets\JavaScripts\Angular\" />
     <Folder Include="Assets\JavaScripts\jQuery\" />
+    <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Styles\" />
+    <Folder Include="Assets\Styles\FontAwesome\" />
     <Folder Include="Assets\Styles\Sidebars\" />
     <Folder Include="Assets\TypeScripts\" />
     <Folder Include="Assets\TypeScripts\Controllers\" />
@@ -48,6 +51,11 @@
     <Folder Include="Views\Sidebar\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Fonts\FontAwesome\fontawesome-webfont.eot" />
+    <Content Include="Assets\Fonts\FontAwesome\fontawesome-webfont.svg" />
+    <Content Include="Assets\Fonts\FontAwesome\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Fonts\FontAwesome\fontawesome-webfont.woff" />
+    <Content Include="Assets\Fonts\FontAwesome\FontAwesome.otf" />
     <Content Include="Assets\Images\selection.gif" />
     <Content Include="Assets\JavaScripts\Angular\angular-animate.js" />
     <Content Include="Assets\JavaScripts\Angular\angular-cookies.js" />
@@ -63,6 +71,19 @@
     <Content Include="Assets\JavaScripts\jQuery\jquery.js" />
     <Content Include="Assets\JavaScripts\jQuery\jquery.nicescroll.js" />
     <Content Include="Assets\Styles\app.less" />
+    <Content Include="Assets\Styles\FontAwesome\bordered-pulled.less" />
+    <Content Include="Assets\Styles\FontAwesome\core.less" />
+    <Content Include="Assets\Styles\FontAwesome\fixed-width.less" />
+    <Content Include="Assets\Styles\FontAwesome\font-awesome.less" />
+    <Content Include="Assets\Styles\FontAwesome\icons.less" />
+    <Content Include="Assets\Styles\FontAwesome\larger.less" />
+    <Content Include="Assets\Styles\FontAwesome\list.less" />
+    <Content Include="Assets\Styles\FontAwesome\mixins.less" />
+    <Content Include="Assets\Styles\FontAwesome\path.less" />
+    <Content Include="Assets\Styles\FontAwesome\rotated-flipped.less" />
+    <Content Include="Assets\Styles\FontAwesome\spinning.less" />
+    <Content Include="Assets\Styles\FontAwesome\stacked.less" />
+    <Content Include="Assets\Styles\FontAwesome\variables.less" />
     <Content Include="Assets\Styles\forms.less" />
     <Content Include="Assets\Styles\main.less" />
     <Content Include="Assets\Styles\mixins.less" />

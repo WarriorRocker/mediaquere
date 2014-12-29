@@ -8,7 +8,7 @@
 			File
 			<ul>
 				<li>
-					Import
+					Import<i class="fa fa-right fa-caret-right"></i>
 					<ul>
 						<li url-input-modal>From Domain</li>
 						<li>From File</li>
@@ -27,10 +27,10 @@
 			Viewport
 			<ul>
 				<li>
-					Presets
+					Presets<i class="fa fa-right fa-caret-right"></i>
 					<ul>
 						<li ng-repeat="section in $root.viewportPresets">
-							{{section.name}}
+							{{section.name}}<i class="fa fa-right fa-caret-right"></i>
 							<ul>
 								<li ng-repeat="preset in section.presets" ng-click="app.setViewportPreset(preset)">
 									{{preset.name}}
@@ -40,7 +40,8 @@
 					</ul>
 				</li>
 				<li ng-click="app.switchOrientation()">
-					Switch Orientation => {{$root.settings.viewportOpts.orientationSwitched}}
+					<i class="fa" ng-class="{'fa-check': $root.settings.viewportOpts.orientationSwitched}"></i>
+					Switch Orientation
 				</li>
 			</ul>
 		</li>
@@ -48,7 +49,7 @@
 			Layers
 			<ul>
 				<li>
-					Themes
+					Themes<i class="fa fa-right fa-caret-right"></i>
 					<ul>
 						<li ng-repeat="theme in $root.layerThemes" ng-click="$root.settings.layerOpts.curLayerTheme = $index">
 							{{theme.name}}
@@ -56,10 +57,12 @@
 					</ul>
 				</li>
 				<li ng-click="$root.settings.layerOpts.showDuplicates = !$root.settings.layerOpts.showDuplicates">
-					Show Duplicates => {{$root.settings.layerOpts.showDuplicates}}
+					<i class="fa" ng-class="{'fa-check': $root.settings.layerOpts.showDuplicates}"></i>
+					Show Duplicates
 				</li>
 				<li ng-click="$root.settings.layerOpts.showMatchedInViewport = !$root.settings.layerOpts.showMatchedInViewport">
-					Show only matched in viewport => {{$root.settings.layerOpts.showMatchedInViewport}}
+					<i class="fa" ng-class="{'fa-check': $root.settings.layerOpts.showMatchedInViewport}"></i>
+					Show only matched in viewport
 				</li>
 			</ul>
 		</li>

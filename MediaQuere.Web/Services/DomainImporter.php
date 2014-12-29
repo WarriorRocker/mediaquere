@@ -42,6 +42,7 @@ class DomainImporter
 	}
 	
 	private function ParseHTML($html) {
+		libxml_use_internal_errors(true);
 		$doc = new \DOMDocument();
 		$doc->loadHTML($html);
 		$xml = simplexml_import_dom($doc);

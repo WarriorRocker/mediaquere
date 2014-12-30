@@ -114,9 +114,10 @@
     <Content Include="Assets\TypeScripts\Definitions\jquery.d.ts" />
     <Content Include="Assets\TypeScripts\Directives\Info\canvasInfoDirective.ts" />
     <Content Include="Assets\TypeScripts\Directives\Info\layersInfoDirective.ts" />
+    <Content Include="Assets\TypeScripts\Directives\Modals\urlInputModalDirective.ts" />
     <Content Include="Assets\TypeScripts\Directives\Visualizer\layerResizeDirective.ts" />
     <Content Include="Assets\TypeScripts\Directives\Modals\cssInputModalDirective.ts" />
-    <Content Include="Assets\TypeScripts\Directives\Modals\urlInputModalDirective.ts" />
+    <Content Include="Assets\TypeScripts\Directives\Modals\newLayerModalDirective.ts" />
     <Content Include="Assets\TypeScripts\Directives\sidebarTabsScrollDirective.ts" />
     <Content Include="Assets\TypeScripts\Directives\Visualizer\visualizerDirective.ts" />
     <Content Include="Assets\TypeScripts\globals.ts" />
@@ -129,6 +130,7 @@
     <Content Include="Assets\TypeScripts\Services\safeApplyService.ts" />
     <Content Include="Assets\TypeScripts\_references.ts" />
     <Content Include="index.html" />
+    <Content Include="Views\Modals\newLayer.html" />
     <Content Include="Views\Modals\cssInput.html" />
     <Content Include="Views\Modals\urlInput.html" />
     <Content Include="Views\Sidebar\info.html" />

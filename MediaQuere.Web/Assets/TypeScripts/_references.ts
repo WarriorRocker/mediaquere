@@ -28,5 +28,6 @@
 /// <reference path="Directives/Info/layersInfoDirective.ts" />
 
 //grunt-start
+/// <reference path="Directives/Modals/newLayerModalDirective.ts" />
 /// <reference path="Directives/sidebarTabsScrollDirective.ts" />
 //grunt-end

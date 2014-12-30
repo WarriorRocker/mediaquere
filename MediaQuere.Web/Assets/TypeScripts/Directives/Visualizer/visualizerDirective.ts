@@ -9,8 +9,6 @@ class visualizerDirective {
 	constructor(private $scope, private $rootScope: IAppRootScope, private $timeout, private element, private attr, private safeApply) {
 		this.$scope.vis = this;
 
-		this.$rootScope.$watch('layers', () => { this.applyLayerTheme(); });
-		this.$rootScope.$watch('settings.layerOpts.curLayerTheme', () => { this.applyLayerTheme(); });
 		this.$rootScope.$watch('settings.viewOpts.showDesignAndCode', () => { this.setCanvasSize(); });
 
 		this.element.on('DOMMouseScroll', (event) => { this.scroll(event.originalEvent.detail); });
@@ -32,19 +30,6 @@ class visualizerDirective {
 			this.$rootScope.canvas.height = this.element.height();
 			this.safeApply(this.$rootScope);
 		});
-	}
-
-	applyLayerTheme() {
-		if (angular.isDefined(this.$rootScope.layers)) {
-			for (var i = 0; i < this.$rootScope.layers.length; i++) {
-				var index = (i % this.$rootScope.layerThemes[this.$rootScope.settings.layerOpts.curLayerTheme].layers.length);
-				var theme = this.$rootScope.layerThemes[this.$rootScope.settings.layerOpts.curLayerTheme].layers[index];
-
-				this.$rootScope.layers[i].bgColor = theme.bgColor;
-				this.$rootScope.layers[i].borderColor = theme.borderColor;
-				this.$rootScope.layers[i].hoverBgColor = theme.hoverBgColor;
-			}
-		}
 	}
 
 	getLayerStyle(layer) {

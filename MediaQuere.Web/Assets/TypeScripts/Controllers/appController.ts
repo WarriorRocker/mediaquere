@@ -21,6 +21,9 @@ class appController {
 		this.$rootScope.viewportPresets = appConfiguration.canvasPresets;
 		this.$rootScope.layerThemes = appConfiguration.layerThemes;
 		this.setViewportPreset(this.$rootScope.viewportPresets[0].presets[0]);
+
+		this.$rootScope.$watchCollection('layers', () => { this.applyLayerTheme(); });
+		this.$rootScope.$watch('settings.layerOpts.curLayerTheme', () => { this.applyLayerTheme(); });
 	}
 
 	importCssInput() {
@@ -57,5 +60,18 @@ class appController {
 		var temp = this.$rootScope.canvas.viewport.width;
 		this.$rootScope.canvas.viewport.width = this.$rootScope.canvas.viewport.height;
 		this.$rootScope.canvas.viewport.height = temp;
+	}
+
+	applyLayerTheme() {
+		if (angular.isDefined(this.$rootScope.layers)) {
+			for (var i = 0; i < this.$rootScope.layers.length; i++) {
+				var index = (i % this.$rootScope.layerThemes[this.$rootScope.settings.layerOpts.curLayerTheme].layers.length);
+				var theme = this.$rootScope.layerThemes[this.$rootScope.settings.layerOpts.curLayerTheme].layers[index];
+
+				this.$rootScope.layers[i].bgColor = theme.bgColor;
+				this.$rootScope.layers[i].borderColor = theme.borderColor;
+				this.$rootScope.layers[i].hoverBgColor = theme.hoverBgColor;
+			}
+		}
 	}
 }

@@ -26,6 +26,11 @@ class appController {
 		this.$rootScope.$watch('settings.layerOpts.curLayerTheme', () => { this.applyLayerTheme(); });
 	}
 
+	newDocument() {
+		this.$rootScope.layers = [];
+		this.cssInput = '';
+	}
+
 	importCssInput() {
 		this.$rootScope.layers = this.parseService.css2layers(this.cssInput);
 	}

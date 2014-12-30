@@ -63,12 +63,12 @@ class parseService {
 		for (var i = 0; i < layers.length; i++) {
 			if (!layers[i].duplicate) {
 				if (css) css += "\n\n";
-				css += '@media screen and';
+				css += '@media screen';
 
-				if (layers[i].minWidth != -1) css += ' (min-width: ' + layers[i].minWidth + 'px)';
-				if (layers[i].maxWidth != -1) css += ' (max-width: ' + layers[i].maxWidth + 'px)';
-				if (layers[i].minHeight != -1) css += ' (min-height: ' + layers[i].minHeight + 'px)';
-				if (layers[i].maxHeight != -1) css += ' (max-height: ' + layers[i].maxHeight + 'px)';
+				if (layers[i].minWidth != -1) css += ' and (min-width: ' + layers[i].minWidth + 'px)';
+				if (layers[i].maxWidth != -1) css += ' and (max-width: ' + layers[i].maxWidth + 'px)';
+				if (layers[i].minHeight != -1) css += ' and (min-height: ' + layers[i].minHeight + 'px)';
+				if (layers[i].maxHeight != -1) css += ' and (max-height: ' + layers[i].maxHeight + 'px)';
 
 				css += " {\n\n}";
 			}

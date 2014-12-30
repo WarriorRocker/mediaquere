@@ -16,4 +16,4 @@ node_modules/
 
 MediaQuere.Web/Assets/JavaScripts/scripts.js
 MediaQuere.Web/Assets/TypeScripts/**/*.js
-MediaQuere.Web/Assets/Styles/**/*.css
+MediaQuere.Web/Assets/Styles/responsive.css

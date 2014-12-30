@@ -32,8 +32,10 @@ class appController {
 			//todo implement multiple sheets
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
-				this.$rootScope.layers = this.$rootScope.layers.concat(this.$rootScope.layers, this.parseService.css2layers(data[i].data));
+				this.$rootScope.layers = this.$rootScope.layers.concat(this.parseService.css2layers(data[i].data));
 			}
+
+			this.cssInput = this.parseService.layers2css(this.$rootScope.layers);
 		});
 	}
 

@@ -7,11 +7,14 @@ class parseService {
 	constructor(private httpService: httpService) {
 	}
 
+	url2css(url: string) {
+		return this.httpService.post(appConfiguration.app.apiUrl + 'import/domain', { url: url });
+	}
+
 	css2layers(css: string): Array<LayerModel> {
-		var layers = [];
+		var layers: Array<LayerModel> = [];
 		if ((angular.isDefined(css)) && (css)) {
 			var queries = css.match(/@media(.*?){/g);
-			console.log(queries);
 
 			if (queries) {
 				for (var i = 0; i < queries.length; i++) {
@@ -44,7 +47,8 @@ class parseService {
 
 			for (i = 0; i < layers.length; i++) {
 				for (n = i + 1; n < layers.length; n++) {
-					if (angular.equals(layers[i], layers[n])) {
+					if ((layers[n].maxWidth == layers[i].maxWidth) && (layers[n].minWidth == layers[i].minWidth) &&
+						(layers[n].maxHeight == layers[i].maxHeight) && (layers[n].minHeight == layers[i].minHeight)) {
 						layers[n].duplicate = true;
 					}
 				}
@@ -54,7 +58,21 @@ class parseService {
 		return layers;
 	}
 
-	url2css(url: string) {
-		return this.httpService.post(appConfiguration.app.apiUrl + 'import/domain', { url: url });
+	layers2css(layers: Array<LayerModel>): string {
+		var css = '';
+		for (var i = 0; i < layers.length; i++) {
+			if (!layers[i].duplicate) {
+				if (css) css += "\n\n";
+				css += '@media screen and';
+
+				if (layers[i].minWidth != -1) css += ' (min-width: ' + layers[i].minWidth + 'px)';
+				if (layers[i].maxWidth != -1) css += ' (max-width: ' + layers[i].maxWidth + 'px)';
+				if (layers[i].minHeight != -1) css += ' (min-height: ' + layers[i].minHeight + 'px)';
+				if (layers[i].maxHeight != -1) css += ' (max-height: ' + layers[i].maxHeight + 'px)';
+
+				css += " {\n\n}";
+			}
+		}
+		return css;
 	}
 }

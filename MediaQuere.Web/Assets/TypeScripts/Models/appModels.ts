@@ -35,6 +35,8 @@ interface LayerModel {
 	bgColor?: string;
 	borderColor?: string;
 	hoverBgColor?: string;
+	enabled?: boolean;
+	duplicate?: boolean;
 }
 
 interface ViewportModel {

@@ -65,12 +65,25 @@ class DomainImporter
 
 		foreach ($sheets as $sheet) {
 			$path = $this->GetSheetUrl($urlparts, $sheet);
+			$data = $this->GetData($path);
 			
 			$result[] = array(
 				'name' => $sheet,
 				'url' => $path,
-				'data' => $this->GetData($path)
+				'data' => $data
 			);
+		
+			if (preg_match_all('/url\([\'\"]([^)]+)[\'\"]\)/', $data, $matches)) {
+				$urlparts = $this->ParseUrl($path);
+				foreach($matches[1] as $url) {
+					$path2 = $this->GetSheetUrl($urlparts, $url);
+					$result[] = array(
+						'name' => $url,
+						'url' => $path2,
+						'data' => $this->GetData($path2)
+					);
+				}
+			}
 		}
 
 		return $result;
@@ -90,9 +103,9 @@ class DomainImporter
 		if ($pos === false) {
 			$newurl = $urlparts['scheme'] . '://' . $urlparts['host'];
 			if ((substr($sheet, 0, 1) != '/') && (isset($urlparts['path']))) {
-				return $newurl . $urlparts['path'] . $sheet;
+				return $newurl . substr($urlparts['path'], 0, strrpos($urlparts['path'], '/') + 1) . $sheet;
 			}
-			return $newurl . $sheet;
+			return $newurl . ((substr($sheet, 0, 1) != '/') ? '/' : '') . $sheet;
 		} elseif ($pos == 0) {
 			return 'http:' . $sheet;
 		}
